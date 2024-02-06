@@ -2,8 +2,8 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Home from "./pages/Home";
-import Application from "./pages/Application";
+import Home from "./components/Home/Home";
+import Application from "./components/Application/Application";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <div className="flex">
         <Sidebar />
-        <div className="flex-grow ml-72 overflow-y-auto">
+        <div className="flex-grow ml-72">
           <div className="content-container">
             <Home />
             <Application />

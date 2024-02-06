@@ -43,7 +43,7 @@ const Sidebar = () => {
             to="home"
             spy={true}
             smooth={true}
-            offset={-50} // Adjust the offset based on your header height
+            offset={-60}
             duration={500}
             className={`block p-5 w-72 cursor-pointer hover:text-blue ${
               activeLink === "home" ? "font-bold text-blue" : ""

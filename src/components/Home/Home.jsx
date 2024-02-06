@@ -1,11 +1,11 @@
 import React from "react";
-import home from "../img/background/back.svg";
-import quote_2 from "../img/quotes/quote2.svg";
-import background from "../img/background/background2.svg";
-import startland from "../img/background/StartLand.svg";
-import quote_1 from "../img/quotes/quote1.svg";
-import { Element, ScrollLink } from "react-scroll";
-import Application from "./Application";
+import home from "../../img/background/back.svg";
+import quote_2 from "../../img/quotes/quote2.svg";
+import background from "../../img/background/background2.svg";
+import startland from "../../img/background/StartLand.svg";
+import quote_1 from "../../img/quotes/quote1.svg";
+import { Element } from "react-scroll";
+
 const Home = () => {
   const containerStyle = {
     backgroundImage: `url(${background})`,
