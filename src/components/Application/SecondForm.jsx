@@ -1,15 +1,18 @@
 import React from "react";
 import arrow from "../../img/icons/Vector1.png";
+import RadioButton from "./RadioButton";
+
 const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
   const salesSphereOptions = ["B2C", "B2B", "B2C&B2B"];
   const technologiesOptions = ["B2C", "B2C&B2B", "B2B"];
+
   return (
     <div className="mt-12 my-12">
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 gap-4">
         <div className="col-span-1">
           <label
             htmlFor="fullName"
-            className="block text-base font-medium text-gray-700"
+            className="block text-base font-medium text-gray-700 mb-2"
           >
             Что даст Ваше решение?
           </label>
@@ -20,93 +23,53 @@ const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Введите имя"
-            className="mt-1 p-2 w-full border rounded-md text-blue font-bold"
+            className="p-2 border rounded-md text-blue font-bold w-[385px] h-[32px]"
           />
           <label
-            htmlFor="salesSphere"
-            className="block text-base font-medium text-gray-700"
+            htmlFor="description"
+            className="block text-base font-medium text-gray-700 mt-4 mb-2"
           >
             Описание проекта
           </label>
           <textarea
             type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
+            id="description"
+            name="description"
+            value={formData.description}
             onChange={handleChange}
             placeholder="Мой проект представляет из себя..."
-            className="mt-1 p-2 border rounded-md text-blue font-bold w-full h-[125px]"
+            className="p-2 border rounded-md text-blue font-bold w-[532px] h-[125px]"
           />
         </div>
         <div className="col-span-1">
-          <div className="flex flex-col space-y-4">
+          <div className="flex ">
             <label
               htmlFor="salesSphere"
-              className="block text-base font-medium text-gray-700"
+              className="block text-base font-medium text-gray-700 mr-4 "
             >
               Сфера продаж
             </label>
-            <div className="mt-1 flex space-x-4">
-              {salesSphereOptions.map((option) => (
-                <label
-                  key={option}
-                  className="flex items-center space-x-2 cursor-pointer"
-                >
-                  <input
-                    type="radio"
-                    id={option}
-                    name="salesSphere"
-                    value={option}
-                    checked
-                    onChange={() =>
-                      handleChange({
-                        target: {
-                          name: "salesSphere",
-                          value: option,
-                          type: "radio",
-                        },
-                      })
-                    }
-                    className="h-4 w-4 cursor-pointer border-gray-300 focus:outline-none focus:border-blue-500"
-                  />
-                  <span>{option}</span>
-                </label>
-              ))}
-            </div>
+            <RadioButton
+              name="salesSphere"
+              options={salesSphereOptions}
+              value={formData.salesSphere}
+              handleChange={handleChange}
+            />
           </div>
-          <div className="flex flex-col space-y-4 p-3">
+          <div className="flex flex-col space-y-4 p-5 ml-7">
             <label
               htmlFor="technologies"
-              className="block text-base font-medium text-gray-700"
+              className="block text-base font-medium text-gray-700 mb-2 mt-2"
             >
               Используемые технологии
             </label>
-            <div className="mt-1 flex space-x-4 items-center">
-              {technologiesOptions.map((option) => (
-                <label
-                  key={option}
-                  className="flex items-center space-x-2 cursor-pointer"
-                >
-                  <input
-                    type="radio"
-                    id={option}
-                    name="technologiesOptions"
-                    value={option}
-                    checked
-                    onChange={() =>
-                      handleChange({
-                        target: {
-                          name: "technologiesOptions",
-                          value: option,
-                          type: "radio",
-                        },
-                      })
-                    }
-                    className="h-4 w-4 cursor-pointer border-gray-300 focus:outline-none focus:border-blue-500"
-                  />
-                  <span>{option}</span>
-                </label>
-              ))}
+            <div className="mb-4">
+              <RadioButton
+                name="technologies"
+                options={technologiesOptions}
+                value={formData.technologies}
+                handleChange={handleChange}
+              />
             </div>
           </div>
         </div>

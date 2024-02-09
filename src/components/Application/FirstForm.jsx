@@ -18,11 +18,11 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Татьяна"
-            className="mt-1 p-2 w-full border rounded-md text-blue font-bold"
+            className="mt-1 p-2 w-[283px] h-[32px] border rounded-md text-blue font-bold"
           />
           <label
             htmlFor="projectName"
-            className="block text-base font-medium text-gray-700 text-blue"
+            className="block text-base font-medium text-gray-700 text-blue w-[283px] h-[32px] mt-4"
           >
             Название проекта
           </label>
@@ -41,7 +41,7 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
         <div className="col-span-1 ">
           <label
             htmlFor="phone"
-            className="block  text-base font-medium text-gray-700"
+            className="block text-base font-medium text-gray-700 w-[227px] h-[32px]"
           >
             Телефон
           </label>
@@ -57,7 +57,7 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
 
           <label
             htmlFor="industry"
-            className="block  text-base font-medium text-gray-700"
+            className="block  text-base font-medium text-gray-700 w-[398px] h-[32px]"
           >
             Отрасль
           </label>
@@ -75,11 +75,10 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
           </select>
         </div>
 
-        {/* Third Column */}
         <div className="col-span-1 ">
           <label
             htmlFor="email"
-            className="block  text-base font-medium text-gray-700"
+            className="block  text-base font-medium text-gray-700  w-[227px] h-[32px]"
           >
             e-mail
           </label>

@@ -11,15 +11,15 @@ const Home = () => {
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    width: "920px",
-    height: "400px",
+    width: "1230px",
+    height: "470px",
   };
   const container = {
     backgroundImage: `url(${home})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    width: "920px",
-    height: "400px",
+    width: "1230px",
+    height: "470px",
   };
 
   return (

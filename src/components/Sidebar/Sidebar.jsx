@@ -12,7 +12,7 @@ const Sidebar = () => {
     // Adjust the offset values based on your layout
     if (scrollY >= 0 && scrollY < 700) {
       setActiveLink("home");
-    } else if (scrollY >= 700 && scrollY < 1400) {
+    } else if (scrollY >= 700 && scrollY < 2100) {
       setActiveLink("application");
     } else {
       setActiveLink(null);
@@ -89,7 +89,7 @@ const Sidebar = () => {
             to="deadline"
             spy={true}
             smooth={true}
-            offset={-10}
+            offset={-400}
             duration={500}
             className={`block p-5 w-72 cursor-pointer hover:text-blue ${
               activeLink === "deadline" ? "font-bold text-blue" : ""
@@ -109,20 +109,20 @@ const Sidebar = () => {
         </li>
         <li>
           <ScrollLink
-            to="category"
+            to="participation"
             spy={true}
             smooth={true}
             offset={-10}
             duration={500}
             className={`block p-5 w-72 cursor-pointer hover:text-blue ${
-              activeLink === "category" ? "font-bold text-blue" : ""
+              activeLink === "participation" ? "font-bold text-blue" : ""
             }`}
             onClick={() => {
-              setActiveLink("category");
-              smoothScrollTo("category");
+              setActiveLink("participation");
+              smoothScrollTo("participation");
             }}
           >
-            {activeLink === "category" && (
+            {activeLink === "participation" && (
               <span className="dot-img inline-block">
                 <img src={dot} alt="dot" className="h-2 w-2 mr-2" />
               </span>

@@ -4,6 +4,9 @@ import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./components/Home/Home";
 import Application from "./components/Application/Application";
+import Deadline from "./components/Deadline/Deadline";
+import Category from "./components/Category/Category";
+import Participation from "./components/Participation/Participation";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
           <div className="content-container">
             <Home />
             <Application />
+            <Deadline />
+            <Category />
+            <Participation />
           </div>
         </div>
       </div>

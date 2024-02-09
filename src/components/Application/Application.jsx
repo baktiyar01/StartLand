@@ -1,3 +1,4 @@
+// Application.jsx
 import React from "react";
 import FirstForm from "./FirstForm";
 import SecondForm from "./SecondForm";
@@ -46,22 +47,21 @@ const Application = () => {
             </div>
           </div>
         </div>
-        <div className="relative">
-          <form onSubmit={onSubmit} className="absolute z-10 ">
-            <CurrentStep
-              formData={formData}
-              handleChange={handleChange}
-              nextStep={nextStep}
-              prevStep={prevStep}
-            />
-          </form>
-          <img
-            src={background2}
-            alt="back2"
-            className="absolute top-[200px] right-0"
+
+        <form onSubmit={onSubmit} className="z-10 relative ">
+          <CurrentStep
+            formData={formData}
+            handleChange={handleChange}
+            nextStep={nextStep}
+            prevStep={prevStep}
           />
-        </div>
+        </form>
       </section>
+      <img
+        src={background2}
+        alt="back2"
+        className="absolute top-[140px] right-0"
+      />
     </Element>
   );
 };

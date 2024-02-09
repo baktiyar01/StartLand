@@ -30,7 +30,7 @@ const ThirdForm = ({ formData, handleChange, submission }) => {
           className="mt-1 p-2 border rounded-md text-blue font-bold w-full "
         />
         <div className="grid grid-cols-2 gap-4 mt-4">
-          <div className="flex ">
+          <div className="flex">
             <label
               htmlFor="startupExperience"
               className="block text-base font-medium text-gray-700 mr-4"
