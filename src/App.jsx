@@ -7,6 +7,7 @@ import Application from "./components/Application/Application";
 import Deadline from "./components/Deadline/Deadline";
 import Category from "./components/Category/Category";
 import Participation from "./components/Participation/Participation";
+import Faq from "./components/Faq/Faq";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Deadline />
             <Category />
             <Participation />
+            <Faq />
           </div>
         </div>
       </div>

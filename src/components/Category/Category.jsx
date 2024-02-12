@@ -1,6 +1,7 @@
 import React from "react";
 import { Element } from "react-scroll";
-
+import background3 from "../../img/background/back-3.svg";
+import quote_2 from "../../img/quotes/quote2.svg";
 const Category = () => {
   const categories = [
     { name: "IT", total: 256, completed: 122 },
@@ -13,11 +14,12 @@ const Category = () => {
   const totalApplications = categories[0].total;
 
   return (
-    <Element name="deadline" className="relative mt-12">
-      <h2 className="text-4xl mb-2">
+    <Element name="deadline" className="mt-12">
+      <h2 className="text-4xl my-12">
         <span className="text-blue">Категории </span>поданных заявок
       </h2>
-      <div className="p-4 max-w-[583px] mx-auto">
+      <img src={background3} alt="back3" className="absolute" />
+      <div className="p-4 max-w-[583px] mx-auto relative ">
         <div className="flex justify-between mb-4">
           <div className="text-xl text-blue font-bold">Всего заявок</div>
           <div className="font-bold">{totalApplications}</div>
@@ -45,6 +47,9 @@ const Category = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="mt-7 flex justify-end">
+          <img src={quote_2} alt="Quotes" />
         </div>
       </div>
     </Element>
