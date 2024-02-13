@@ -113,7 +113,8 @@ const ThirdForm = ({ formData, handleChange, submission }) => {
             {attachedFileName ? attachedFileName : "Прикрепить другие файлы"}
           </label>
         </div>
-        <div className="mt-14 flex justify-between">
+        <div className="border-b border-solid border-opacity-34  dark:border-opacity-60 mt-6"></div>
+        <div className="mt-10 flex justify-between">
           <label className="inline-flex items-center">
             <input
               type="checkbox"

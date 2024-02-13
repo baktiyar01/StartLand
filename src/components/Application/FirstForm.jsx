@@ -37,11 +37,10 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
           />
         </div>
 
-        {/* Second Column */}
-        <div className="col-span-1 ">
+        <div className="col-span-1">
           <label
             htmlFor="phone"
-            className="block text-base font-medium text-gray-700 w-[227px] h-[32px]"
+            className="block text-base font-medium text-gray-700"
           >
             Телефон
           </label>
@@ -57,7 +56,7 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
 
           <label
             htmlFor="industry"
-            className="block  text-base font-medium text-gray-700 w-[398px] h-[32px]"
+            className="block text-base font-medium text-gray-700 w-[283px] h-[32px] mt-4"
           >
             Отрасль
           </label>
@@ -71,14 +70,13 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
             <option value="" disabled>
               Выберите отрасль
             </option>
-            {/* Add your industry options here */}
           </select>
         </div>
 
         <div className="col-span-1 ">
           <label
             htmlFor="email"
-            className="block  text-base font-medium text-gray-700  w-[227px] h-[32px]"
+            className="block  text-base font-medium text-gray-700  "
           >
             e-mail
           </label>
@@ -93,6 +91,7 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
           />
         </div>
       </div>
+      <div className="border-b border-solid border-opacity-34  dark:border-opacity-60 mt-6"></div>
       <div className="flex justify-between mt-10">
         <h1>Перейти к следующему шагу</h1>
         <button

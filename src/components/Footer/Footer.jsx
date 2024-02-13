@@ -1,36 +1,29 @@
 import React from "react";
 import dot from "../../img/icons/dot.svg";
-import icon from "../../img/icons/carbon_user-online.svg";
-import elipse from "../../img/icons/Ellipse 20.svg";
+import logo from "../../img/background/StartLand-f.svg";
+import telegram from "../../img/socials/telegramm.svg";
+import instagram from "../../img/socials/instagramm.svg";
+import facebook from "../../img/socials/facebook.svg";
+import vk from "../../img/socials/vk.svg";
 
 function Footer() {
   return (
-    <footer className="py-4 px-2">
-      <div className="flex items-center justify-between">
-        <span className="text-4xl font-bold break-words font-raleway">
-          <span className="text-black">Start</span>
-          <span className="text-blue inline-flex items-baseline">
-            Land
-            <img src={dot} alt="Dot" />
-          </span>
+    <footer className=" py-8 px-2 bg-black">
+      <div className="container mx-auto flex items-center justify-between">
+        <span className="inline-flex items-baseline">
+          <img src={logo} alt="logo" />
+          <img src={dot} alt="Dot" />
         </span>
-        <div className="flex items-center font-ptSansPro">
-          <span className="mr-3 text-lg font-light">
-            Добрый день,
-            <span className="mr-3 text-lg font-bold">Татьяна Ф.</span>
-          </span>
-          <div className="relative rounded-full overflow-hidden w-8 h-8 mr-3">
-            <img
-              src={elipse}
-              alt="Elipse"
-              className="w-full h-full object-cover"
-            />
-            <img
-              src={icon}
-              alt="Icon"
-              className="w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-            />
-          </div>
+
+        <span className="mr-3 text-lg font-light text-white">
+          2021. StartLand Публичная офферта
+        </span>
+
+        <div className="flex justify-between">
+          <img src={telegram} alt="telegram" className="mr-5" />
+          <img src={instagram} alt="instagram" className="mr-5" />
+          <img src={facebook} alt="facebook" className="mr-5" />
+          <img src={vk} alt="vk" className="mr-5" />
         </div>
       </div>
     </footer>

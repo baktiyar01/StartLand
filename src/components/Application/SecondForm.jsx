@@ -8,41 +8,26 @@ const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
 
   return (
     <div className="mt-12 my-12">
-      <div className="grid grid-cols-2 gap-4">
-        <div className="col-span-1">
-          <label
-            htmlFor="fullName"
-            className="block text-base font-medium text-gray-700 mb-2"
-          >
-            Что даст Ваше решение?
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            placeholder="Введите имя"
-            className="p-2 border rounded-md text-blue font-bold w-[385px] h-[32px]"
-          />
-          <label
-            htmlFor="description"
-            className="block text-base font-medium text-gray-700 mt-4 mb-2"
-          >
-            Описание проекта
-          </label>
-          <textarea
-            type="text"
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            placeholder="Мой проект представляет из себя..."
-            className="p-2 border rounded-md text-blue font-bold w-[532px] h-[125px]"
-          />
-        </div>
-        <div className="col-span-1">
-          <div className="flex ">
+      <div className="flex col">
+        <div className="flex justify-between items-center gap-14">
+          <div className="items-center">
+            <label
+              htmlFor="fullName"
+              className="block text-base font-medium text-gray-700 mb-2"
+            >
+              Что даст Ваше решение?
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              placeholder="Введите имя"
+              className="p-2 border rounded-md text-blue font-bold w-[385px] h-[32px]"
+            />
+          </div>
+          <div className="flex items-center pt-6">
             <label
               htmlFor="salesSphere"
               className="block text-base font-medium text-gray-700 mr-4 "
@@ -56,14 +41,35 @@ const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
               handleChange={handleChange}
             />
           </div>
-          <div className="flex flex-col space-y-4 p-5 ml-7">
+        </div>
+      </div>
+      <div className="flex col">
+        <div className="flex justify-between gap-14">
+          <div>
+            <label
+              htmlFor="description"
+              className="block text-base font-medium text-gray-700 mt-4 mb-2"
+            >
+              Описание проекта
+            </label>
+            <textarea
+              type="text"
+              id="description"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              placeholder="Мой проект представляет из себя..."
+              className="p-2 border rounded-md text-blue font-bold w-[532px] h-[125px]"
+            />
+          </div>
+          <div className="pt-6">
             <label
               htmlFor="technologies"
               className="block text-base font-medium text-gray-700 mb-2 mt-2"
             >
               Используемые технологии
             </label>
-            <div className="mb-4">
+            <div className="mt-4">
               <RadioButton
                 name="technologies"
                 options={technologiesOptions}
@@ -74,7 +80,7 @@ const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
           </div>
         </div>
       </div>
-
+      <div className="border-b border-solid border-opacity-34  dark:border-opacity-60 mt-6"></div>
       <div className="flex justify-end mt-10">
         <button
           onClick={nextStep}

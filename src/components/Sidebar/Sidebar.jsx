@@ -9,14 +9,22 @@ const Sidebar = () => {
   const handleScroll = () => {
     const scrollY = window.scrollY;
 
-    // Adjust the offset values based on your layout
-    if (scrollY >= 0 && scrollY < 700) {
+    if (scrollY >= 0 && scrollY < 500) {
       setActiveLink("home");
-    } else if (scrollY >= 700 && scrollY < 2100) {
+    } else if (scrollY >= 500 && scrollY < 700) {
       setActiveLink("application");
+    } else if (scrollY >= 700 && scrollY < 2100) {
+      setActiveLink("deadline");
+    } else if (scrollY >= 2100 && scrollY < 3000) {
+      setActiveLink("participation");
+    } else if (scrollY >= 3000 && scrollY < 3600) {
+      setActiveLink("faq");
+    } else if (scrollY >= 3600) {
+      setActiveLink("partners");
     } else {
       setActiveLink(null);
     }
+    console.log(scrollY);
   };
 
   useEffect(() => {
@@ -43,7 +51,7 @@ const Sidebar = () => {
             to="home"
             spy={true}
             smooth={true}
-            offset={-60}
+            offset={-10}
             duration={500}
             className={`block p-5 w-72 cursor-pointer hover:text-blue ${
               activeLink === "home" ? "font-bold text-blue" : ""
@@ -66,7 +74,7 @@ const Sidebar = () => {
             to="application"
             spy={true}
             smooth={true}
-            offset={-50}
+            offset={-150}
             duration={500}
             className={`block p-5 w-72 cursor-pointer hover:text-blue ${
               activeLink === "application" ? "font-bold text-blue" : ""
@@ -89,7 +97,7 @@ const Sidebar = () => {
             to="deadline"
             spy={true}
             smooth={true}
-            offset={-400}
+            offset={-10}
             duration={500}
             className={`block p-5 w-72 cursor-pointer hover:text-blue ${
               activeLink === "deadline" ? "font-bold text-blue" : ""
@@ -135,7 +143,7 @@ const Sidebar = () => {
             to="faq"
             spy={true}
             smooth={true}
-            offset={-10}
+            offset={-150}
             duration={500}
             className={`block p-5 w-72 cursor-pointer hover:text-blue ${
               activeLink === "faq" ? "font-bold text-blue" : ""

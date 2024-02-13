@@ -8,6 +8,8 @@ import Deadline from "./components/Deadline/Deadline";
 import Category from "./components/Category/Category";
 import Participation from "./components/Participation/Participation";
 import Faq from "./components/Faq/Faq";
+import Partners from "./components/Partners/Partners";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -23,9 +25,11 @@ function App() {
             <Category />
             <Participation />
             <Faq />
+            <Partners />
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
