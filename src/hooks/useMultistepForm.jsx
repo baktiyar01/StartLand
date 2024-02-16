@@ -1,4 +1,3 @@
-// useMultistepForm.jsx
 import { useState } from "react";
 
 const useForm = (initialValues) => {
@@ -11,7 +10,7 @@ const useForm = (initialValues) => {
     if (type === "radio") {
       setFormData((prevData) => ({
         ...prevData,
-        [name]: checked ? value : "", // Uncheck the radio button if already selected
+        [name]: checked ? value : "",
       }));
     } else {
       setFormData((prevData) => ({

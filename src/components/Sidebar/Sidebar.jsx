@@ -1,4 +1,3 @@
-// Sidebar.jsx
 import React, { useState, useEffect } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import dot from "../../img/icons/dot.svg";
@@ -24,7 +23,6 @@ const Sidebar = () => {
     } else {
       setActiveLink(null);
     }
-    console.log(scrollY);
   };
 
   useEffect(() => {

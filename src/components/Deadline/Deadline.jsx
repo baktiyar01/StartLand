@@ -1,13 +1,16 @@
 import React from "react";
 import { Element } from "react-scroll";
-
+import timeLine from "../../img/background/timeline.svg";
 const Deadline = () => {
   return (
-    <Element name="deadline" className="relative">
+    <Element name="deadline" className="relative mt-12 my-12">
       <div className="mt-12 my-12">
-        <h2 className="text-4xl text-blue mb-2">Сроки и этапы</h2>
+        <h2 className="text-4xl  text-blue mb-2">Сроки и этапы</h2>
       </div>
       <div className="flex justify-center">
+        <img src={timeLine} alt="timeline" />
+      </div>
+      {/* <div className="flex justify-center">
         <ol className="border-l border-neutral-300 dark:border-neutral-500 md:flex md:gap-6 md:border-l-0 md:border-t">
           <li>
             <div className="flex-start flex items-center pt-2 md:block md:pt-0">
@@ -65,7 +68,7 @@ const Deadline = () => {
             </div>
           </li>
         </ol>
-      </div>
+      </div> */}
     </Element>
   );
 };
