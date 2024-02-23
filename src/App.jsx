@@ -9,27 +9,30 @@ import Participation from "./components/Participation/Participation";
 import Faq from "./components/Faq/Faq";
 import Partners from "./components/Partners/Partners";
 import Footer from "./components/Footer/Footer";
+import { SnackbarProvider } from "notistack";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <div className="flex">
-        <Sidebar />
-        <div className="flex-grow ml-72">
-          <div className="content-container">
-            <Home />
-            <Application />
-            <Deadline />
-            <Category />
-            <Participation />
-            <Faq />
-            <Partners />
+    <SnackbarProvider>
+      <div>
+        <Header />
+        <div className="flex">
+          <Sidebar />
+          <div className="flex-grow ml-72">
+            <div className="content-container">
+              <Home />
+              <Application />
+              <Deadline />
+              <Category />
+              <Participation />
+              <Faq />
+              <Partners />
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </SnackbarProvider>
   );
 }
 

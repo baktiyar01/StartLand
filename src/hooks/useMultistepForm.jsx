@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-const useForm = (initialValues) => {
-  const [formData, setFormData] = useState({ initialValues });
+const useForm = () => {
+  const [formData, setFormData] = useState({});
   const [step, setStep] = useState(1);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === "radio") {
+    if (type === "radio" && checked) {
       setFormData((prevData) => ({
         ...prevData,
-        [name]: checked ? value : "",
+        [name]: value,
       }));
-    } else {
+    } else if (type !== "radio") {
       setFormData((prevData) => ({
         ...prevData,
         [name]: value,
@@ -34,6 +34,8 @@ const useForm = (initialValues) => {
     handleChange,
     nextStep,
     prevStep,
+    setFormData,
+    setStep,
   };
 };
 

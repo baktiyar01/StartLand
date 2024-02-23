@@ -21,8 +21,12 @@ function Footer() {
 
         <div className="flex justify-between">
           <img src={telegram} alt="telegram" className="mr-5" />
-          <img src={instagram} alt="instagram" className="mr-5" />
-          <img src={facebook} alt="facebook" className="mr-5" />
+          <a href=" https://www.instagram.com/atyrautechinvest.kz/">
+            <img src={instagram} alt="instagram" className="mr-5" />
+          </a>
+          <a href="https://www.facebook.com/AtyrauTechInvest?mibextid=LQQJ4d">
+            <img src={facebook} alt="facebook" className="mr-5" />
+          </a>
           <img src={vk} alt="vk" className="mr-5" />
         </div>
       </div>

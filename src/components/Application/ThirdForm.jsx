@@ -1,16 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clipIcon from "../../img/icons/akar-icons_attach.svg";
 import RadioButton from "./RadioButton";
-import { useState } from "react";
+import { useSnackbar } from "notistack";
+import supabase from "../../utils/supabaseClient";
+import submission from "../../utils/submissionFunctions";
+import useFileUpload from "../../hooks/useUploadFile";
 
-const ThirdForm = ({ formData, handleChange, submission }) => {
-  const options = ["Да", "Нет"];
-  const [attachedFileName, setAttachedFileName] = useState("");
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setAttachedFileName(file ? file.name : "");
-    handleChange(event);
+const ThirdForm = ({ setFormData, formData, handleChange, prevStep }) => {
+  const [startupExperience, setStartupExperience] = useState([]);
+  const [researches, setResearches] = useState([]);
+  const [presentation, setPresentation] = useState([]);
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  useEffect(() => {
+    getStartupExperience();
+    getResearches();
+    getPresentation();
+  }, []);
+
+  async function getStartupExperience() {
+    const { data } = await supabase.from("startupExperiense").select();
+    setStartupExperience(data);
+  }
+
+  async function getResearches() {
+    const { data } = await supabase.from("researches").select();
+    setResearches(data);
+  }
+
+  async function getPresentation() {
+    const { data } = await supabase.from("presentation").select();
+    setPresentation(data);
+  }
+
+  const handleSubmit = async () => {
+    await submission(
+      formData,
+      attachedFileName,
+      additionalFileName,
+      enqueueSnackbar,
+      setFormData,
+      prevStep
+    );
   };
+
+  const {
+    attachedFileName,
+    additionalFileName,
+    handleFileChange,
+    handleAdditionalFileChange,
+  } = useFileUpload(enqueueSnackbar);
+
   return (
     <div className="mt-12 my-12">
       <div className="col-span-1">
@@ -40,7 +81,7 @@ const ThirdForm = ({ formData, handleChange, submission }) => {
 
             <RadioButton
               name="startupExperience"
-              options={options}
+              options={startupExperience}
               value={formData.startupExperience}
               handleChange={handleChange}
             />
@@ -55,7 +96,7 @@ const ThirdForm = ({ formData, handleChange, submission }) => {
 
             <RadioButton
               name="researches"
-              options={options}
+              options={researches}
               value={formData.researches}
               handleChange={handleChange}
             />
@@ -71,7 +112,7 @@ const ThirdForm = ({ formData, handleChange, submission }) => {
             </label>
             <RadioButton
               name="presentation"
-              options={options}
+              options={presentation}
               value={formData.presentation}
               handleChange={handleChange}
             />
@@ -86,32 +127,36 @@ const ThirdForm = ({ formData, handleChange, submission }) => {
               id="attachedPresentation"
               name="attachedPresentation"
               className="hidden"
-              onChange={handleFileChange}
+              onChange={(event) => handleFileChange(event.target.files[0])}
             />
             <img src={clipIcon} alt="clipIcon" />
             <label
               htmlFor="attachedPresentation"
               className="block text-base  text-blue font-bold underline"
             >
-              {attachedFileName ? attachedFileName : "Прикрепить презентацию"}
+              "Прикрепить презентацию"
             </label>
+            {attachedFileName && <p>{attachedFileName}</p>}
           </div>
         </div>
         <div className="flex mt-6 ">
           <input
             type="file"
-            id="attachedPresentation"
-            name="attachedPresentation"
+            id="additionalpresentation"
+            name="additionalpresentation"
             className="hidden"
-            onChange={handleFileChange}
+            onChange={(event) =>
+              handleAdditionalFileChange(event.target.files[0])
+            }
           />
           <img src={clipIcon} alt="clipIcon" />
           <label
-            htmlFor="attachedPresentation"
+            htmlFor="additionalpresentation"
             className="block text-base  text-blue font-bold underline"
           >
-            {attachedFileName ? attachedFileName : "Прикрепить другие файлы"}
+            "Прикрепить другие файлы"
           </label>
+          {additionalFileName && <p>{additionalFileName}</p>}
         </div>
         <div className="border-b border-solid border-opacity-34  dark:border-opacity-60 mt-6"></div>
         <div className="mt-10 flex justify-between">
@@ -130,7 +175,7 @@ const ThirdForm = ({ formData, handleChange, submission }) => {
             </span>
           </label>
           <button
-            onClick={submission}
+            onClick={handleSubmit}
             className="mt-4 p-2 rounded-md w-full text-white flex items-center justify-center"
             style={{
               width: "283px",

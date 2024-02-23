@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import arrow from "../../img/icons/Vector1.png";
+import supabase from "../../utils/supabaseClient";
+
 const FirstForm = ({ formData, handleChange, nextStep }) => {
+  const [industries, setIndustries] = useState([]);
+  const [emailError, setEmailError] = useState("");
+  useEffect(() => {
+    getIndustries();
+  }, []);
+
+  async function getIndustries() {
+    const { data } = await supabase.from("industries").select();
+    setIndustries(data);
+  }
+
+  const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const handleEmailChange = (event) => {
+    const { value } = event.target;
+    handleChange(event);
+    validateEmail(value);
+  };
+
   return (
     <div className="mt-12  my-12">
       <div className="grid grid-cols-3 gap-8">
@@ -39,7 +67,7 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
 
         <div className="col-span-1">
           <label
-            htmlFor="phone"
+            htmlFor="phoneNumber"
             className="block text-base font-medium text-gray-700"
           >
             Телефон
@@ -67,9 +95,12 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
             onChange={handleChange}
             className="mt-1 p-2 w-full border rounded-md"
           >
-            <option value="" disabled>
-              Выберите отрасль
-            </option>
+            <option value=""> Выберите отрасль</option>
+            {industries.map((industry) => (
+              <option key={industry.id} value={industry.id}>
+                {industry.name}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -85,10 +116,11 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
             id="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={handleEmailChange}
             placeholder="Введите e-mail"
             className="mt-1 p-2 w-full border rounded-md text-blue font-bold"
           />
+          {emailError && <p className="text-red-500">{emailError}</p>}
         </div>
       </div>
       <div className="border-b border-solid border-opacity-34  dark:border-opacity-60 mt-6"></div>

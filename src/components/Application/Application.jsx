@@ -7,9 +7,8 @@ import background2 from "../../img/background/back-2.svg";
 import { Element } from "react-scroll";
 
 const Application = () => {
-  const { formData, step, handleChange, nextStep, prevStep } = useForm({
-    salesSphere: "",
-  });
+  const { formData, setFormData, step, handleChange, nextStep, prevStep } =
+    useForm({});
 
   const steps = [FirstForm, SecondForm, ThirdForm];
   const CurrentStep = steps[step - 1];
@@ -53,6 +52,7 @@ const Application = () => {
             handleChange={handleChange}
             nextStep={nextStep}
             prevStep={prevStep}
+            setFormData={setFormData}
           />
         </form>
       </section>

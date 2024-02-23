@@ -1,27 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import arrow from "../../img/icons/Vector1.png";
 import RadioButton from "./RadioButton";
+import supabase from "../../utils/supabaseClient";
 
 const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
-  const salesSphereOptions = ["B2C", "B2B", "B2C&B2B"];
-  const technologiesOptions = ["B2C", "B2C&B2B", "B2B"];
+  const [salesSphereOptions, setSalesSphereOptions] = useState([]);
+  const [technologiesOptions, setTechnologiesOptions] = useState([]);
 
+  useEffect(() => {
+    getSalesphere();
+    getTechnology();
+  }, []);
+
+  async function getSalesphere() {
+    const { data } = await supabase.from("salesSphere").select();
+
+    setSalesSphereOptions(data);
+  }
+  async function getTechnology() {
+    const { data } = await supabase.from("technologies").select();
+    setTechnologiesOptions(data);
+  }
   return (
     <div className="mt-12 my-12">
       <div className="flex col">
         <div className="flex justify-between items-center gap-14">
           <div className="items-center">
             <label
-              htmlFor="fullName"
+              htmlFor="solution"
               className="block text-base font-medium text-gray-700 mb-2"
             >
               Что даст Ваше решение?
             </label>
             <input
               type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
+              id="solution"
+              name="solution"
+              value={formData.solution}
               onChange={handleChange}
               placeholder="Введите имя"
               className="p-2 border rounded-md text-blue font-bold w-[385px] h-[32px]"
