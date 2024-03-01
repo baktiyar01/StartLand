@@ -4,7 +4,6 @@ import dot from "../../img/icons/dot.svg";
 
 const Sidebar = () => {
   const [activeLink, setActiveLink] = useState(null);
-
   const handleScroll = () => {
     const scrollY = window.scrollY;
 

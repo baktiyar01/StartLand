@@ -8,10 +8,10 @@ import vk from "../../img/socials/vk.svg";
 
 function Footer() {
   return (
-    <footer className=" py-8 px-2 bg-black">
-      <div className="container mx-auto flex items-center justify-between">
-        <span className="inline-flex items-baseline">
-          <img src={logo} alt="logo" />
+    <footer className="py-8 px-2 bg-black">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+        <span className="flex items-center">
+          <img src={logo} alt="logo" className="mr-2" />
           <img src={dot} alt="Dot" />
         </span>
 
@@ -19,7 +19,7 @@ function Footer() {
           2021. StartLand Публичная офферта
         </span>
 
-        <div className="flex justify-between">
+        <div className="flex justify-center md:justify-between mt-4 md:mt-0">
           <img src={telegram} alt="telegram" className="mr-5" />
           <a href=" https://www.instagram.com/atyrautechinvest.kz/">
             <img src={instagram} alt="instagram" className="mr-5" />

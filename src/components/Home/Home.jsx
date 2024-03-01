@@ -11,14 +11,15 @@ const Home = () => {
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    width: "1230px",
+    width: "100%",
     height: "470px",
   };
+
   const container = {
     backgroundImage: `url(${home})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    width: "1230px",
+    width: "100%",
     height: "470px",
   };
 
@@ -26,7 +27,7 @@ const Home = () => {
     <Element name="home" className="relative">
       <div className="relative" style={containerStyle}>
         <div className="relative" style={container}>
-          <div className="  absolute top-12 right-28">
+          <div className="absolute top-12 right-28">
             <img src={quote_1} alt="start" />
           </div>
           <div className="absolute bottom-0">
@@ -35,11 +36,11 @@ const Home = () => {
         </div>
       </div>
 
-      <section className="w-3/4 ml-4">
-        <div className="relative text-left font-light mt-5">
-          <div className="flex items-end justify-between mt-12 px-4 my-12">
-            <div>
-              <h1 className=" md:text-lg w-[484px] h-[196px] ">
+      <section className="w-full md:w-3/4 ml-4 px-4 md:px-0 mt-10 md:mt-20">
+        <div className="relative text-left font-light">
+          <div className="flex flex-col md:flex-row items-end justify-between">
+            <div className="md:w-3/5">
+              <h1 className="md:text-lg">
                 StartLand - это акселерационная программа созданная для развития
                 ИТ стартапов и поддержки инновационных решений. Участникам
                 предстоит пройти несколько этапов оценки и отбора, результатом
@@ -48,13 +49,16 @@ const Home = () => {
                 поддержку в развитии проекта.
               </h1>
             </div>
-            <img src={quote_2} alt="Quotes" className="px-10 " />
+            <img
+              src={quote_2}
+              alt="Quotes"
+              className="hidden md:block md:ml-10"
+            />
           </div>
         </div>
-        <div className="blue-bar" />
+        <div className="blue-bar mt-10 md:mt-20" />
       </section>
     </Element>
   );
 };
-
 export default Home;

@@ -30,8 +30,8 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
   };
 
   return (
-    <div className="mt-12  my-12">
-      <div className="grid grid-cols-3 gap-8">
+    <div className="mt-12 my-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="col-span-1">
           <label
             htmlFor="fullName"
@@ -46,11 +46,14 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Татьяна"
-            className="mt-1 p-2 w-[283px] h-[32px] border rounded-md text-blue font-bold"
+            className="mt-1 p-2 w-full border rounded-md text-blue font-bold"
           />
+        </div>
+
+        <div className="col-span-1">
           <label
             htmlFor="projectName"
-            className="block text-base font-medium text-gray-700 text-blue w-[283px] h-[32px] mt-4"
+            className="block text-base font-medium text-gray-700"
           >
             Название проекта
           </label>
@@ -81,10 +84,12 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
             placeholder="+7 ("
             className="mt-1 p-2 w-full border rounded-md text-blue font-bold"
           />
+        </div>
 
+        <div className="col-span-1">
           <label
             htmlFor="industry"
-            className="block text-base font-medium text-gray-700 w-[283px] h-[32px] mt-4"
+            className="block text-base font-medium text-gray-700 w-[283px] h-[32px]"
           >
             Отрасль
           </label>
@@ -104,10 +109,10 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
           </select>
         </div>
 
-        <div className="col-span-1 ">
+        <div className="col-span-1">
           <label
             htmlFor="email"
-            className="block  text-base font-medium text-gray-700  "
+            className="block text-base font-medium text-gray-700"
           >
             e-mail
           </label>
@@ -123,7 +128,7 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
           {emailError && <p className="text-red-500">{emailError}</p>}
         </div>
       </div>
-      <div className="border-b border-solid border-opacity-34  dark:border-opacity-60 mt-6"></div>
+      <div className="border-b border-solid border-opacity-34 dark:border-opacity-60 mt-6"></div>
       <div className="flex justify-between mt-10">
         <h1>Перейти к следующему шагу</h1>
         <button

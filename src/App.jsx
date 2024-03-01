@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./components/Home/Home";
@@ -12,13 +12,27 @@ import Footer from "./components/Footer/Footer";
 import { SnackbarProvider } from "notistack";
 
 function App() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <SnackbarProvider>
       <div>
         <Header />
         <div className="flex">
-          <Sidebar />
-          <div className="flex-grow ml-72">
+          {!isMobile && <Sidebar />}
+          <div className={`flex-grow ${isMobile ? "" : "ml-72"}`}>
             <div className="content-container">
               <Home />
               <Application />

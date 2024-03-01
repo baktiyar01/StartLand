@@ -4,12 +4,13 @@ import { useState } from "react";
 
 const Question = ({ question, answer }) => {
   const [expand, setExpand] = useState(false);
-  const expandClass = expand ? "display" : "hidden";
+  const expandClass = expand ? "block" : "hidden";
   const ansClass = `${expandClass} p-4`;
+
   return (
-    <div className="shadow rounded-md border-gray-100 border-t-0 w-3/4">
+    <div className="shadow rounded-md border-gray-100 border-t-0 w-full md:w-3/4 mx-auto">
       <div className="p-8 m-3 text-xl relative font-medium">
-        <div className="w-5/6 text-black dark:text-opacity-60 font-bold">
+        <div className="w-full md:w-5/6 text-black dark:text-opacity-60 font-bold">
           {question}
         </div>
         <button

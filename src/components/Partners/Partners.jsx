@@ -36,6 +36,7 @@ const partners = [
   { imgSrc: partner15, altText: "partner15" },
   { imgSrc: partner16, altText: "partner16" },
 ];
+
 const Partners = () => {
   return (
     <Element name="partners" className="relative">
@@ -44,7 +45,7 @@ const Partners = () => {
           Наши <span className="text-blue">партнеры</span>
         </h2>
 
-        <div className="grid gap-4 grid-cols-4 mt-10 ">
+        <div className="grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8 mt-10 ">
           {partners.map((partner, index) => (
             <PartnerCard
               key={index}

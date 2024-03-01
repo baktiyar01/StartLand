@@ -70,7 +70,7 @@ const ThirdForm = ({ setFormData, formData, handleChange, prevStep }) => {
           placeholder="Введите имя"
           className="mt-1 p-2 border rounded-md text-blue font-bold w-full "
         />
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           <div className="flex">
             <label
               htmlFor="startupExperience"
@@ -102,7 +102,7 @@ const ThirdForm = ({ setFormData, formData, handleChange, prevStep }) => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           <div className="flex mt-6">
             <label
               htmlFor="presentation"
@@ -159,7 +159,7 @@ const ThirdForm = ({ setFormData, formData, handleChange, prevStep }) => {
           {additionalFileName && <p>{additionalFileName}</p>}
         </div>
         <div className="border-b border-solid border-opacity-34  dark:border-opacity-60 mt-6"></div>
-        <div className="mt-10 flex justify-between">
+        <div className="mt-10 flex flex-col md:flex-row justify-between items-center">
           <label className="inline-flex items-center">
             <input
               type="checkbox"
@@ -176,7 +176,7 @@ const ThirdForm = ({ setFormData, formData, handleChange, prevStep }) => {
           </label>
           <button
             onClick={handleSubmit}
-            className="mt-4 p-2 rounded-md w-full text-white flex items-center justify-center"
+            className="mt-4 p-2 rounded-md w-full md:w-auto text-white flex items-center justify-center"
             style={{
               width: "283px",
               height: "32px",

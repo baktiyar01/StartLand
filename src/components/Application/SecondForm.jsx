@@ -23,25 +23,25 @@ const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
   }
   return (
     <div className="mt-12 my-12">
-      <div className="flex col">
-        <div className="flex justify-between items-center gap-14">
-          <div className="items-center">
-            <label
-              htmlFor="solution"
-              className="block text-base font-medium text-gray-700 mb-2"
-            >
-              Что даст Ваше решение?
-            </label>
-            <input
-              type="text"
-              id="solution"
-              name="solution"
-              value={formData.solution}
-              onChange={handleChange}
-              placeholder="Введите имя"
-              className="p-2 border rounded-md text-blue font-bold w-[385px] h-[32px]"
-            />
-          </div>
+      <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:w-1/2 md:mr-8">
+          <label
+            htmlFor="solution"
+            className="block text-base font-medium text-gray-700 mb-2"
+          >
+            Что даст Ваше решение?
+          </label>
+          <input
+            type="text"
+            id="solution"
+            name="solution"
+            value={formData.solution}
+            onChange={handleChange}
+            placeholder="Введите имя"
+            className="p-2 border rounded-md text-blue font-bold w-full md:w-[385px] h-[32px]"
+          />
+        </div>
+        <div className="flex flex-col md:w-1/2">
           <div className="flex items-center pt-6">
             <label
               htmlFor="salesSphere"
@@ -58,44 +58,45 @@ const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
           </div>
         </div>
       </div>
-      <div className="flex col">
-        <div className="flex justify-between gap-14">
-          <div>
-            <label
-              htmlFor="description"
-              className="block text-base font-medium text-gray-700 mt-4 mb-2"
-            >
-              Описание проекта
-            </label>
-            <textarea
-              type="text"
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              placeholder="Мой проект представляет из себя..."
-              className="p-2 border rounded-md text-blue font-bold w-[532px] h-[125px]"
+
+      <div className="flex flex-col md:flex-row mt-4">
+        <div className="flex flex-col md:w-1/2 md:mr-8">
+          <label
+            htmlFor="description"
+            className="block text-base font-medium text-gray-700 mt-4 mb-2"
+          >
+            Описание проекта
+          </label>
+          <textarea
+            type="text"
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            placeholder="Мой проект представляет из себя..."
+            className="p-2 border rounded-md text-blue font-bold w-full h-[125px]"
+          />
+        </div>
+        <div className="flex flex-col md:w-1/2">
+          <label
+            htmlFor="technologies"
+            className="block text-base font-medium text-gray-700 mb-2 mt-2"
+          >
+            Используемые технологии
+          </label>
+          <div className="mt-4">
+            <RadioButton
+              name="technologies"
+              options={technologiesOptions}
+              value={formData.technologies}
+              handleChange={handleChange}
             />
-          </div>
-          <div className="pt-6">
-            <label
-              htmlFor="technologies"
-              className="block text-base font-medium text-gray-700 mb-2 mt-2"
-            >
-              Используемые технологии
-            </label>
-            <div className="mt-4">
-              <RadioButton
-                name="technologies"
-                options={technologiesOptions}
-                value={formData.technologies}
-                handleChange={handleChange}
-              />
-            </div>
           </div>
         </div>
       </div>
-      <div className="border-b border-solid border-opacity-34  dark:border-opacity-60 mt-6"></div>
+
+      <div className="border-b border-solid border-opacity-34 dark:border-opacity-60 mt-6"></div>
+
       <div className="flex justify-end mt-10">
         <button
           onClick={nextStep}
