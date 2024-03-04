@@ -11,8 +11,10 @@ const useFileUpload = (enqueueSnackbar) => {
       return;
     }
 
-    setAttachedFileName(file.name);
-    const filePath = `public/uploads/${file.name}`;
+    const fileName = file.name; // Save the file name before uploading
+    setAttachedFileName(fileName);
+
+    const filePath = `public/uploads/${fileName}`;
     const { data, error } = await supabase.storage
       .from("presentation")
       .upload(filePath, file);
@@ -21,6 +23,8 @@ const useFileUpload = (enqueueSnackbar) => {
       console.error("Error uploading file:", error.message);
       return;
     }
+
+    // Update the file name with the public URL
     getFilePath(filePath);
   };
 
@@ -32,7 +36,7 @@ const useFileUpload = (enqueueSnackbar) => {
     if (urlError) {
       throw urlError;
     }
-    // console.log("got public url", data);
+
     setAttachedFileName(data.publicUrl);
   }
 
@@ -42,8 +46,10 @@ const useFileUpload = (enqueueSnackbar) => {
       return;
     }
 
-    setAdditionalFileName(file.name);
-    const filePath = `public/uploads/${file.name}`;
+    const fileName = file.name; // Save the file name before uploading
+    setAdditionalFileName(fileName);
+
+    const filePath = `public/uploads/${fileName}`;
     const { data, error } = await supabase.storage
       .from("presentation")
       .upload(filePath, file);
@@ -52,6 +58,8 @@ const useFileUpload = (enqueueSnackbar) => {
       console.error("Error uploading file:", error.message);
       return;
     }
+
+    // Update the file name with the public URL
     getAdditionalFilePath(filePath);
   };
 
@@ -63,7 +71,7 @@ const useFileUpload = (enqueueSnackbar) => {
     if (urlError) {
       throw urlError;
     }
-    // console.log("got public url", data);
+
     setAdditionalFileName(data.publicUrl);
   }
 

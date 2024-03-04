@@ -37,7 +37,7 @@ const SecondForm = ({ formData, handleChange, nextStep, prevStep }) => {
             name="solution"
             value={formData.solution}
             onChange={handleChange}
-            placeholder="Введите имя"
+            placeholder="Введите ваше решение"
             className="p-2 border rounded-md text-blue font-bold w-full md:w-[385px] h-[32px]"
           />
         </div>

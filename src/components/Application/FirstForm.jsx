@@ -45,7 +45,7 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
-            placeholder="Татьяна"
+            placeholder="Введите имя"
             className="mt-1 p-2 w-full border rounded-md text-blue font-bold"
           />
         </div>
@@ -63,7 +63,7 @@ const FirstForm = ({ formData, handleChange, nextStep }) => {
             name="projectName"
             value={formData.projectName}
             onChange={handleChange}
-            placeholder="Введите имя"
+            placeholder="Введите название проекта"
             className="mt-1 p-2 w-full border rounded-md text-blue font-bold"
           />
         </div>

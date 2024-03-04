@@ -67,7 +67,7 @@ const ThirdForm = ({ setFormData, formData, handleChange, prevStep }) => {
           name="projectUniqueness"
           value={formData.projectUniqueness}
           onChange={handleChange}
-          placeholder="Введите имя"
+          placeholder="Введите уникальность проекта"
           className="mt-1 p-2 border rounded-md text-blue font-bold w-full "
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
