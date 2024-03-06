@@ -5,6 +5,7 @@ import { useSnackbar } from "notistack";
 import supabase from "../../utils/supabaseClient";
 import submission from "../../utils/submissionFunctions";
 import useFileUpload from "../../hooks/useUploadFile";
+import emailjs from "emailjs-com";
 
 const ThirdForm = ({ setFormData, formData, handleChange, prevStep }) => {
   const [startupExperience, setStartupExperience] = useState([]);
@@ -43,6 +44,41 @@ const ThirdForm = ({ setFormData, formData, handleChange, prevStep }) => {
       setFormData,
       prevStep
     );
+
+    const confirmationParams = {
+      from_email: formData.email,
+    };
+    emailjs
+      .send(
+        "service_y2h4gw8",
+        "template_dbamecw",
+        confirmationParams,
+        "XskjfPvOezdVJzXk0"
+      )
+      .then((response) => {
+        console.log("Confirmation email sent!", response.status, response.text);
+      })
+      .catch((error) => {
+        console.error("Confirmation email error:", error);
+      });
+
+    const notificationParams = {
+      to_email: "bakhtiar.erkinov1@gmail.com",
+      from_email: formData.email,
+    };
+    emailjs
+      .send(
+        "service_y2h4gw8",
+        "template_8uic47u",
+        notificationParams,
+        "XskjfPvOezdVJzXk0"
+      )
+      .then((response) => {
+        console.log("Notification email sent!", response.status, response.text);
+      })
+      .catch((error) => {
+        console.error("Notification email error:", error);
+      });
   };
 
   const {

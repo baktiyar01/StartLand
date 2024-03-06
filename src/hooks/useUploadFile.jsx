@@ -7,11 +7,19 @@ const useFileUpload = (enqueueSnackbar) => {
 
   const handleFileChange = async (file) => {
     if (!file || file.type !== "application/pdf") {
-      enqueueSnackbar("Please upload a PDF file", { variant: "error" });
+      enqueueSnackbar("Пожалуйста, загрузите PDF-файл", { variant: "error" });
       return;
     }
 
-    const fileName = file.name; // Save the file name before uploading
+    const fileName = file.name;
+    const isValidFileName = /^[a-zA-Z0-9-_\.]+$/.test(fileName);
+
+    if (!isValidFileName) {
+      enqueueSnackbar("Имя файла должно содержать только латинские символы", {
+        variant: "error",
+      });
+      return;
+    }
     setAttachedFileName(fileName);
 
     const filePath = `public/uploads/${fileName}`;
@@ -24,7 +32,6 @@ const useFileUpload = (enqueueSnackbar) => {
       return;
     }
 
-    // Update the file name with the public URL
     getFilePath(filePath);
   };
 
@@ -42,11 +49,19 @@ const useFileUpload = (enqueueSnackbar) => {
 
   const handleAdditionalFileChange = async (file) => {
     if (!file || file.type !== "application/pdf") {
-      enqueueSnackbar("Please upload a PDF file", { variant: "error" });
+      enqueueSnackbar("Пожалуйста, загрузите PDF-файл", { variant: "error" });
       return;
     }
 
-    const fileName = file.name; // Save the file name before uploading
+    const fileName = file.name;
+    const isValidFileName = /^[a-zA-Z0-9-_\.]+$/.test(fileName);
+
+    if (!isValidFileName) {
+      enqueueSnackbar("Имя файла должно содержать только латинские символы", {
+        variant: "error",
+      });
+      return;
+    }
     setAdditionalFileName(fileName);
 
     const filePath = `public/uploads/${fileName}`;
@@ -59,7 +74,6 @@ const useFileUpload = (enqueueSnackbar) => {
       return;
     }
 
-    // Update the file name with the public URL
     getAdditionalFilePath(filePath);
   };
 
